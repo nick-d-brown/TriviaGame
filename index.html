@@ -15,156 +15,166 @@
         <div id="startScreen">
             <h1>Olympic Trivia</h1>
             <h3>Once the "Start the Game!" button is pressed you will have 2 minutes to guess the correct answers to these Olympic themed questions.</h3>
-            <input type="button" onclick="gameStart()" value="Start the Game!" class="btn btn-primary btn-lg btn-block">
+            <input type="button" id="gameStartButton" value="Start the Game!" class="btn btn-primary btn-lg">
         </div>
         <div id="gamePlay">
 
       
             <h1>Select the correct answer for each question</h1>
-            <form>
+            <h2>Seconds Remaining: <span id="runningTimer"></span></h2>
+            <form name="trivaQuiz">
+
+
                 <ul>
                     <li>
                         <h4>Question #1:</h4>
                         <p>This country has the lowest number of total Olympic medals per capita.</p>
-                        <div>
-                            <input type="radio" name="question1choices" id="Question1Answer1" value="1">
+                        
+                            <input type="radio" name="question1" id="Question1Answer1" value="a">
                             <label for="Question1Answer1">India - correct</label>
                     
-                            <input type="radio" name="question1choices" id="Question1Answer2" value="2">
+                            <input type="radio" name="question1" id="Question1Answer2" value="b">
                             <label for="Question1Answer2">USA</label>
                     
-                            <input type="radio" name="question1choices" id="Question1Answer3" value="3">
+                            <input type="radio" name="question1" id="Question1Answer3" value="c">
                             <label for="Question1Answer3">China</label>
 
-                            <input type="radio" name="question1choices" id="Question1Answer4" value="4">
+                            <input type="radio" name="question1" id="Question1Answer4" value="d">
                             <label for="Question1Answer4">Spain</label>
-                        </div>
+                      
                     </li>
                     <li>
                         <h4>Question #2:</h4>
                         <p>This country is the only country to have won a gold medal at every Summer Olympic Games.</p>
-                        <div>
-                            <input type="radio" name="question2choices" id="Question2Answer1" value="1">
+                        
+                            <input type="radio" name="question2" id="Question2Answer1" value="a">
                             <label for="Question2Answer1">Australia</label>
                     
-                            <input type="radio" name="question2choices" id="Question2Answer2" value="2">
+                            <input type="radio" name="question2" id="Question2Answer2" value="b">
                             <label for="Question2Answer2">Switzerland</label>
                     
-                            <input type="radio" name="question2choices" id="Question2Answer3" value="3">
+                            <input type="radio" name="question2" id="Question2Answer3" value="c">
                             <label for="Question2Answer3">Great Britain - correct</label>
 
-                            <input type="radio" name="question2choices" id="Question2Answer4" value="4">
+                            <input type="radio" name="question2" id="Question2Answer4" value="d">
                             <label for="Question2Answer4">France</label>
-                        </div>
+                        
                     </li>
                     <li>
                         <h4>Question #3:</h4>
                         <p>What was the last year that medals were made of solid gold?</p>
-                        <div>
-                            <input type="radio" name="question3choices" id="Question3Answer1" value="1">
+                        
+                            <input type="radio" name="question3" id="Question3Answer1" value="a">
                             <label for="Question3Answer1">1920</label>
                     
-                            <input type="radio" name="question3choices" id="Question3Answer2" value="2">
+                            <input type="radio" name="question3" id="Question3Answer2" value="b">
                             <label for="Question3Answer2">1912 - correct</label>
                     
-                            <input type="radio" name="question3choices" id="Question3Answer3" value="3">
+                            <input type="radio" name="question3" id="Question3Answer3" value="c">
                             <label for="Question3Answer3">1900</label>
 
-                            <input type="radio" name="question3choices" id="Question3Answer4" value="4">
+                            <input type="radio" name="question3" id="Question3Answer4" value="d">
                             <label for="Question3Answer4">1928</label>
-                        </div>
+                        
                     </li>
                     <li>
                         <h4>Question #4:</h4>
                         <p>What was the first team sport to be added to the Olympics?</p>
-                        <div>
-                            <input type="radio" name="question4choices" id="Question4Answer1" value="1">
+                        
+                            <input type="radio" name="question4" id="Question4Answer1" value="a">
                             <label for="Question4Answer1">Ice Hockey</label>
                     
-                            <input type="radio" name="question4choices" id="Question4Answer2" value="2">
+                            <input type="radio" name="question4" id="Question4Answer2" value="b">
                             <label for="Question4Answer2">Rowing</label>
                     
-                            <input type="radio" name="question4choices" id="Question4Answer3" value="3">
+                            <input type="radio" name="question4" id="Question4Answer3" value="c">
                             <label for="Question4Answer3">Curling</label>
 
-                            <input type="radio" name="question4choices" id="Question4Answer4" value="4">
+                            <input type="radio" name="question4" id="Question4Answer4" value="d">
                             <label for="Question4Answer4">Football (Soccer) - correct</label>
-                        </div>
+                        
                     </li>
                     <li>
                         <h4>Question #5:</h4>
                         <p>This was the first year that swimming pools were used for swimming events.</p>
-                        <div>
-                            <input type="radio" name="question5choices" id="Question5Answer1" value="1">
+                        
+                            <input type="radio" name="question5" id="Question5Answer1" value="a">
                             <label for="Question5Answer1">1908 - correct</label>
                     
-                            <input type="radio" name="question5choices" id="Question5Answer2" value="2">
+                            <input type="radio" name="question5" id="Question5Answer2" value="b">
                             <label for="Question5Answer2">1912</label>
                     
-                            <input type="radio" name="question5choices" id="Question5Answer3" value="3">
+                            <input type="radio" name="question5" id="Question5Answer3" value="c">
                             <label for="Question5Answer3">1904</label>
 
-                            <input type="radio" name="question5choices" id="Question5Answer4" value="4">
+                            <input type="radio" name="question5" id="Question5Answer4" value="d">
                             <label for="Question5Answer4">1932</label>
-                        </div>
+                        
                     </li>
                     <li>
                         <h4>Question #6:</h4>
                         <p>What was the final score of the famous 1980 'Miracle on Ice' game between the USSR and the USA?</p>
-                        <div>
-                            <input type="radio" name="question6choices" id="Question6Answer1" value="1">
+                        
+                            <input type="radio" name="question6" id="Question6Answer1" value="a">
                             <label for="Question6Answer1">1-0</label>
                     
-                            <input type="radio" name="question6choices" id="Question6Answer2" value="2">
+                            <input type="radio" name="question6" id="Question6Answer2" value="b">
                             <label for="Question6Answer2">2-1</label>
                     
-                            <input type="radio" name="question6choices" id="Question6Answer3" value="3">
+                            <input type="radio" name="question6" id="Question6Answer3" value="c">
                             <label for="Question6Answer3">3-2</label>
 
-                            <input type="radio" name="question6choices" id="Question6Answer4" value="4">
+                            <input type="radio" name="question6" id="Question6Answer4" value="d">
                             <label for="Question6Answer4">4-3 - correct</label>
-                        </div>
+                        
                     </li>
                     <li>
                         <h4>Question #7:</h4>
                         <p>Which nation has only won a single Olympic medal?</p>
-                        <div>
-                            <input type="radio" name="question7choices" id="Question7Answer1" value="1">
+                        
+                            <input type="radio" name="question7" id="Question7Answer1" value="a">
                             <label for="Question7Answer1">Djibouti - correct</label>
                     
-                            <input type="radio" name="question7choices" id="Question7Answer2" value="2">
+                            <input type="radio" name="question7" id="Question7Answer2" value="b">
                             <label for="Question7Answer2">Nauru</label>
                     
-                            <input type="radio" name="question7choices" id="Question7Answer3" value="3">
+                            <input type="radio" name="question7" id="Question7Answer3" value="c">
                             <label for="Question7Answer3">Bolivia</label>
 
-                            <input type="radio" name="question7choices" id="Question7Answer4" value="4">
+                            <input type="radio" name="question7" id="Question7Answer4" value="d">
                             <label for="Question7Answer4">Malta</label>
-                        </div>
+                        
                     </li>
                     <li>
                         <h4>Question #8:</h4>
                         <p>How many gold medals has Michael Phelps won?</p>
-                        <div>
-                            <input type="radio" name="question8choices" id="Question8Answer1" value="1">
+                        
+                            <input type="radio" name="question8" id="Question8Answer1" value="a">
                             <label for="Question8Answer1">12</label>
                     
-                            <input type="radio" name="question8choices" id="Question8Answer2" value="2">
+                            <input type="radio" name="question8" id="Question8Answer2" value="b">
                             <label for="Question8Answer2">20</label>
                     
-                            <input type="radio" name="question8choices" id="Question8Answer3" value="3">
+                            <input type="radio" name="question8" id="Question8Answer3" value="c">
                             <label for="Question8Answer3">24</label>
 
-                            <input type="radio" name="question8choices" id="Question8Answer4" value="4">
+                            <input type="radio" name="question8" id="Question8Answer4" value="d">
                             <label for="Question8Answer4">18 - correct</label>
-                        </div>
+                        
+                    </li>
+                    <li>
+                        <input type="button" id="gameSubmitButton" value="Submit Answers" class="btn btn-primary btn-lg" >
                     </li>
                 </ul>
+                
             </form>
-            
         </div>
         <div id="gameOverScreen">
-
+            <h1>Game Over!</h1>
+            <div id="result"></div>
+            <h3>Correct Questions: <span id="correctQuestions"></span></h3>
+            <h3>Incorrect Questions: <span id="incorrectQuestions"></span></h3>
+            <h3>Unanswered Questions: <span id="unansweredQuestions"></span></h3>
         </div>
     </div>
 </div>

@@ -4,3 +4,15 @@
 ul {
     list-style-type: none;
 }
+
+#startScreen {
+    display: block;
+}
+
+#gamePlay {
+    display: none;
+}
+
+#gameOverScreen {
+    display: none;
+}
