@@ -1,6 +1,5 @@
 // trivia game logic
 
-
 $(document).ready(function(){
 //Variables
     var questions = [
@@ -70,14 +69,15 @@ $(document).ready(function(){
         } ,
     ];
         
+    var runningTimer;
+
     var userAnswers = [];
 
-    var timerNumberStart = 12;
+    var timerNumberStart = 120;
 
     var correctQuestionCount = 0;
     var incorrectQuestionCount = 0;
     var unansweredQuestionCount = 0;
-
 
 // 1. first screen is displayed with button to click to start game (done)
     
@@ -86,7 +86,8 @@ $(document).ready(function(){
     var gameGo = document.getElementById("gameStartButton").onclick = function()   {   
         document.getElementById('startScreen').style.display = 'none';
         document.getElementById('gamePlay').style.display = 'block';
-        // document.getElementById('gameOverScreen').style.display = 'none';
+        document.getElementsByTagName("BODY")[0].style.backgroundImage = 'url(./assets/images/hotel.jpeg)';
+        
         triviaStart();
         var gameSubmit = document.getElementById("gameSubmitButton").addEventListener("click", questionCheck);
     };
@@ -102,76 +103,43 @@ $(document).ready(function(){
 
         // iv. # of unanswered questions are displayed in "Unanswered" section
 
-        // (optional) v. reset button - when pressed resets the game
+
+
+    function triviaStart() {
+        clearInterval(runningTimer);
+        runningTimer = setInterval(timerCountDown, 1000);
+    }
+
     function timerCountDown() {
-        document.getElementById("runningTimer").innerHTML = timerNumberStart;
+        // document.getElementById("runningTimer").innerHTML = timerNumberStart;
         timerNumberStart--;
+        document.getElementById("runningTimer").innerHTML = timerNumberStart;
         if (timerNumberStart === 0) {
-            // clearInterval(runningTimer);
-            // document.getElementById('gamePlay').style.display = 'none';
-            // document.getElementById('gameOverScreen').style.display = 'block';
+            stopTimer();
             questionCheck();
         }
     }
 
-    function triviaStart () {
-        var runningTimer = setInterval(timerCountDown,1000);
+    function stopTimer() {
+        clearInterval(runningTimer);
     }
-
-
-///////////////////////////////////////////////working code above
-
-    // var gameSubmit = document.getElementById("gameSubmitButton").addEventListener("click", questionCheck);
-
-
-
-
-
-    
-
-    
-    // document.getElementById("gameSubmitButton").addEventListener("click", questionCheck);
-    
     
     function questionCheck() {
 
-        //this is working and will push each question into the array        
-       
-        //$('input:radio[value=female]').prop("checked", true );; try using this
-        // console.log($('input'));
-           
-            // if (!$('input:checked')) {
-            //     $('input:checked').each(function () {
-            //     array.push(0);
-            //     console.log(array);
-            //     });
-            // }
-            // else 
-            // if ($('input:checked')) {
-            //     $('input:checked').each(function () {
-            //         array.push($(this).val());
-            //         console.log(array);
-            //         console.log($('input:checked'));
-            //     });
-            // }
-
-
-        clearInterval(runningTimer);
+        stopTimer();
         document.getElementById('gamePlay').style.display = 'none';
         document.getElementById('gameOverScreen').style.display = 'block';
-
-
+        console.log($('input[name="question1"]:checked'));
+        
             //is question 1 correct
 
             var question1answer = $('input[name="question1"]:checked');
             if (question1answer.length === 0) {
                 unansweredQuestionCount++;
-                // document.getElementById("unansweredQuestions") = unansweredQuestionCount;
             } else {
                 $.each(question1answer, function(){
                     if ($(this).val() === questions[0].correctValue) {
                         correctQuestionCount++;
-                // document.getElementById("correctQuestions") = correctQuestionCount;
                     } else {
                         incorrectQuestionCount++;
                     }
@@ -182,12 +150,10 @@ $(document).ready(function(){
             var question2answer = $('input[name="question2"]:checked');
             if (question2answer.length === 0) {
                 unansweredQuestionCount++;
-                // document.getElementById("unansweredQuestions") = unansweredQuestionCount;
             } else {
                 $.each(question2answer, function(){
                     if ($(this).val() === questions[1].correctValue) {
                         correctQuestionCount++;
-                // document.getElementById("correctQuestions") = correctQuestionCount;
                     } else {
                         incorrectQuestionCount++;
                     }
@@ -198,12 +164,10 @@ $(document).ready(function(){
             var question3answer = $('input[name="question3"]:checked');
             if (question3answer.length === 0) {
                 unansweredQuestionCount++;
-                // document.getElementById("unansweredQuestions") = unansweredQuestionCount;
             } else {
                 $.each(question3answer, function(){
                     if ($(this).val() === questions[2].correctValue) {
                         correctQuestionCount++;
-                // document.getElementById("correctQuestions") = correctQuestionCount;
                     } else {
                         incorrectQuestionCount++;
                     }
@@ -214,12 +178,10 @@ $(document).ready(function(){
             var question4answer = $('input[name="question4"]:checked');
             if (question4answer.length === 0) {
                 unansweredQuestionCount++;
-                // document.getElementById("unansweredQuestions") = unansweredQuestionCount;
             } else {
-                $.each(question1answer, function(){
+                $.each(question4answer, function(){
                     if ($(this).val() === questions[3].correctValue) {
                         correctQuestionCount++;
-                // document.getElementById("correctQuestions") = correctQuestionCount;
                     } else {
                         incorrectQuestionCount++;
                     }
@@ -230,12 +192,10 @@ $(document).ready(function(){
             var question5answer = $('input[name="question5"]:checked');
             if (question5answer.length === 0) {
                 unansweredQuestionCount++;
-                // document.getElementById("unansweredQuestions") = unansweredQuestionCount;
             } else {
-                $.each(question1answer, function(){
+                $.each(question5answer, function(){
                     if ($(this).val() === questions[4].correctValue) {
                         correctQuestionCount++;
-                // document.getElementById("correctQuestions") = correctQuestionCount;
                     } else {
                         incorrectQuestionCount++;
                     }
@@ -246,12 +206,10 @@ $(document).ready(function(){
             var question6answer = $('input[name="question6"]:checked');
             if (question6answer.length === 0) {
                 unansweredQuestionCount++;
-                // document.getElementById("unansweredQuestions") = unansweredQuestionCount;
             } else {
-                $.each(question1answer, function(){
+                $.each(question6answer, function(){
                     if ($(this).val() === questions[5].correctValue) {
                         correctQuestionCount++;
-                // document.getElementById("correctQuestions") = correctQuestionCount;
                     } else {
                         incorrectQuestionCount++;
                     }
@@ -262,12 +220,10 @@ $(document).ready(function(){
             var question7answer = $('input[name="question7"]:checked');
             if (question7answer.length === 0) {
                 unansweredQuestionCount++;
-                // document.getElementById("unansweredQuestions") = unansweredQuestionCount;
             } else {
-                $.each(question1answer, function(){
+                $.each(question7answer, function(){
                     if ($(this).val() === questions[6].correctValue) {
                         correctQuestionCount++;
-                // document.getElementById("correctQuestions") = correctQuestionCount;
                     } else {
                         incorrectQuestionCount++;
                     }
@@ -278,18 +234,26 @@ $(document).ready(function(){
             var question8answer = $('input[name="question8"]:checked');
             if (question8answer.length === 0) {
                 unansweredQuestionCount++;
-                // document.getElementById("unansweredQuestions") = unansweredQuestionCount;
             } else {
-                $.each(question1answer, function(){
+                $.each(question8answer, function(){
                     if ($(this).val() === questions[7].correctValue) {
                         correctQuestionCount++;
-                // document.getElementById("correctQuestions") = correctQuestionCount;
                     } else {
                         incorrectQuestionCount++;
                     }
                 });
             }
-            
+        
+        if (correctQuestionCount >= 6) {
+            document.getElementsByTagName("BODY")[0].style.backgroundImage = 'url(./assets/images/medal.jpeg)';
+            document.getElementsByTagName("BODY")[0].style.backgroundPosition = 'center';
+
+        } else {
+            document.getElementsByTagName("BODY")[0].style.backgroundImage = 'url(./assets/images/track.jpeg)';
+
+        }
+
+
         document.getElementById("unansweredQuestions").innerText = unansweredQuestionCount;
         document.getElementById("correctQuestions").innerText = correctQuestionCount;
         document.getElementById("incorrectQuestions").innerText = incorrectQuestionCount;
@@ -297,33 +261,6 @@ $(document).ready(function(){
        console.log(unansweredQuestions);
        
     }
-
-
-
-
-    //     for (var i = 0; i < questions.length; i++) {
-    //         if (array[i] === questions[i].correctValue) {
-    //             correctQuestionCount++;
-    //             document.getElementById("correctQuestions") = correctQuestionCount;
-    //         }
-    //         else if (array[i] === 0) {
-    //             unansweredQuestionCount++;
-    //             // document.getElementById("unansweredQuestions") = unansweredQuestionCount;
-    //         }
-    //         else {
-    //             incorrectQuestionCount++;
-    //             // document.getElementById("incorrectQuestions") = incorrectQuestionCount;
-    //             $("#incorrectQuestions").text(incorrectQuestionCount);
-    //         }
-    //     } 
-    // }   
-    
-    // console.log(array); 
-
-        /* compare the values in the array and if the value at spot [i]
-        in the array is = to the value of the [i] object that is the same as the question value, then plus one to correct incorrectAnswers
-        if value is 0 then add to unanswered questions
-        else ann to the wrng andswers */
     
     // c. each question (8 total) has 4 radio buttons 
 
@@ -334,7 +271,6 @@ $(document).ready(function(){
 
     // when submit is clicked
     
-
         // i. game over screen has win displayed (optional) and total wins and losses
 
         // ii. # of correct answers are displayed in the "Correct Answers" section
@@ -345,5 +281,5 @@ $(document).ready(function(){
 
         // (optional) v. reset button - when pressed resets the game
 
-
 });
+
