@@ -18,40 +18,20 @@ body {
     text-decoration: underline;
     text-shadow: 5px 2px 2px rgba(150, 150, 150, 1);
 }
-/* .logo:nth-letter(1) {
-    color: 	#3e76ec;
-}
-.logo:nth-letter(2) {
-    color: #000000;
-}
-.logo:nth-letter(3) {
-    color: #ff0000;
-}
-.logo:nth-letter(4) {
-    color: #ffce01;
-}
-.logo:nth-letter(5) {
-    color: #179a13;
-} */
 
 ul {
     list-style-type: none;
-    
 }
 
+/* DO NOT change these display emlements. They are changed in the app.js file to switch through the screens. */
 #startScreen {
     display: block;
-    /* background:red; */
 }
 
 #gamePlay {
     display: none;
-    /* background:red; */
-
 }
 
 #gameOverScreen {
     display: none;
-    /* background:red; */
-
 }
